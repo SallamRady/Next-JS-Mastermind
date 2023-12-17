@@ -1,13 +1,10 @@
-import Header from "@/components/header";
-import Links from "@/components/Links";
-
 export default function Home() {
   return (
     <>
       <main>
-        <Header />
-        <p>🔥 Let&apos;s get started! 🔥</p>
-        <Links />
+        <h1 style={{ color: "#fff", textAlign: "center" }}>
+          Time to get Start our Project
+        </h1>
       </main>
     </>
   );
