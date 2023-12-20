@@ -12,7 +12,7 @@ const NavLink = ({ href, children }) => {
     <Link
       href={href}
       className={
-        path.startsWith({ href })
+        path.startsWith(href)
           ? `${classes.link} ${classes.active}`
           : classes.link
       }

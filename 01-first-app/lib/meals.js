@@ -17,3 +17,11 @@ export async function getMeals() {
   let meals = await db.prepare("SELECT * FROM meals").all();
   return meals;
 }
+
+/**
+ * @returns a meal data from sqlite db according slug.
+ */
+export async function getMeal(slug) {
+  let meal = db.prepare("SELECT * FROM meals WHERE slug = ?").get(slug);
+  return meal;
+}
