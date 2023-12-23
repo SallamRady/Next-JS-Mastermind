@@ -38,7 +38,9 @@ export async function saveMeal(meal) {
 
   // start deal with image.
   let extention = meal.image.name.split(".").pop();
-  let filename = `${meal.slug}.${extention}`;
+  let filename = `${meal.slug}_${Date.now()}`;
+  meal.slug = filename;
+  filename += `.${extention}`;
 
   let stream = fs.createWriteStream(`public/images/${filename}`);
   let bufferedImage = await meal.image.arrayBuffer();
