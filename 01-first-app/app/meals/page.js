@@ -5,6 +5,13 @@ import { getMeals } from "@/lib/meals";
 import { Suspense } from "react";
 import LoadingPage from "./loading-out";
 
+
+// page meta data.
+export const metadata = {
+  title: "All meals",
+  description: "Browse the delicious meals shared by our vibrant communites.",
+};
+
 // function return meals grid after loading
 async function Meals() {
   // declaration...

@@ -4,6 +4,18 @@ import Image from "next/image";
 import React from "react";
 import { notFound } from "next/navigation";
 
+// page meta data
+export async function generateMetadata({ params }) {
+  let meal = await getMeal(params.slug);
+  if (!meal) {
+    notFound();
+  }
+  return {
+    title: meal.title,
+    description: meal.summary,
+  };
+}
+
 async function DynamicMealsPage({ params }) {
   // declaration...
   let { slug } = params;
