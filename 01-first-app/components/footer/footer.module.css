@@ -1,0 +1,15 @@
+.footer {
+  background: #7d3d1a;
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-shadow: 0.5px 0.5px 0.3px;
+}
+
+.footer a {
+  color: goldenrod;
+  margin: 0 3px;
+  text-decoration: none;
+}
