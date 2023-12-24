@@ -32,7 +32,7 @@ const EventItem = ({ title, image, date, location, id }) => {
           </div>
         </div>
         <div className={classes.actions}>
-          <Button href={exploreLink}>
+          <Button link={exploreLink}>
             <span>Explore Event</span>
             <span className={classes.icon}>
               <ArrowRightIcon />
