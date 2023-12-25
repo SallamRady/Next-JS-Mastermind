@@ -1,7 +1,6 @@
 // import packages
-import fs from "fs/promises";
+import { getData } from "@/utils/data.worker";
 import Link from "next/link";
-import path from "path";
 
 export default function Home(props) {
   let singleProduct = props?.products?.map((ele) => (
@@ -21,9 +20,7 @@ export default function Home(props) {
 export async function getStaticProps() {
   // declaration...
   console.log("Re-generating...");
-  let filePath = path.join(process.cwd(), "data", "product-data.json");
-  let jsonData = await fs.readFile(filePath);
-  let data = JSON.parse(jsonData);
+  let data = await getData();
 
   return {
     props: {
