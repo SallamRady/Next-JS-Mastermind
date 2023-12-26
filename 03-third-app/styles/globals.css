@@ -1,4 +1,11 @@
-body{
+body {
   background-color: lightgray;
   margin: 3rem auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  padding: 10px;
 }
