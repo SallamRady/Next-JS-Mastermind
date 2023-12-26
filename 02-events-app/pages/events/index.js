@@ -2,6 +2,7 @@ import EventsList from "@/components/events/EventsList";
 import EventsSearch from "@/components/events/events-search";
 import { getAllEvents } from "@/dummy-data";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 const EventsPage = (props) => {
   let { allEvents } = props;
@@ -18,6 +19,11 @@ const EventsPage = (props) => {
   
   return (
     <>
+    <Head>
+      <title>All Events.</title>
+      <meta name="author" content="Sallam Rady"/>
+      <meta name="description" content="Explore and discover great events which you can envolve."/>
+    </Head>
       <EventsSearch onSearch={handleEventsFilters} />
       <EventsList items={allEvents} />
     </>

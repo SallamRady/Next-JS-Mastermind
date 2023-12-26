@@ -4,6 +4,7 @@ import EventLogistics from "@/components/event-detail/event-logistics";
 import EventSummary from "@/components/event-detail/event-summary";
 import ErrorAlert from "@/components/ui/error-alert";
 import { getEventById } from "@/dummy-data";
+import Head from "next/head";
 
 function EventDetails(props) {
   const { event } = props;
@@ -22,6 +23,11 @@ function EventDetails(props) {
 
   return (
     <>
+      <Head>
+        <title>{event.title}</title>
+        <meta name="author" content="Sallam Rady" />
+        <meta name="description" content={event.description} />
+      </Head>
       <EventSummary title={event.title} />
       <EventLogistics
         date={event.date}

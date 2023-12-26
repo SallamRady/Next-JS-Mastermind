@@ -4,6 +4,7 @@ import ErrorAlert from "@/components/ui/error-alert";
 import { getFilteredEvents } from "@/dummy-data";
 import { useRouter } from "next/router";
 import React from "react";
+import Head from "next/head";
 
 const FilteredEvents = () => {
   let router = useRouter();
@@ -18,6 +19,11 @@ const FilteredEvents = () => {
 
   return (
     <>
+    <Head>
+        <title>Filtered Events</title>
+        <meta name="author" content="Sallam Rady" />
+        <meta name="description" content={`Events in ${month}/${year} `} />
+      </Head>
       <EventsSearch onSearch={handleEventsFilters} />
       {filteredEvents?.length == 0 && (
         <ErrorAlert>No Events According Your Filters.</ErrorAlert>

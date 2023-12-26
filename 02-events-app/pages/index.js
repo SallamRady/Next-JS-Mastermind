@@ -1,4 +1,5 @@
 // Home page
+import Head from "next/head";
 import EventsList from "@/components/events/EventsList";
 import { getFeaturedEvents } from "@/dummy-data";
 
@@ -7,7 +8,12 @@ export default function Home(props) {
 
   return (
     <>
-      <EventsList items={featuresEvents} />
+    <Head>
+      <title>Events App</title>
+      <meta name="author" content="Sallam Rady"/>
+      <meta name="description" content="Find a lot of great events that allow you to evolve.."/>
+    </Head>
+    <EventsList items={featuresEvents} />
     </>
   );
 }
