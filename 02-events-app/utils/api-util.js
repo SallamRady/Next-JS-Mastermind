@@ -52,9 +52,7 @@ export function getFilteredEvents(dateFilter) {
       month,
       eventDate.getMonth()
     );
-    return (
-      eventDate.getFullYear() == year && eventDate.getMonth() == month - 1
-    );
+    return eventDate.getFullYear() == year && eventDate.getMonth() == month - 1;
   });
 
   return filteredEvents;

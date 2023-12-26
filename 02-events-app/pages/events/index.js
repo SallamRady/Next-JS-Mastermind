@@ -1,6 +1,6 @@
 import EventsList from "@/components/events/EventsList";
 import EventsSearch from "@/components/events/events-search";
-import { getAllEvents } from "@/dummy-data";
+import { getAllEvents } from "@/utils/api-util";
 import { useRouter } from "next/router";
 import Head from "next/head";
 

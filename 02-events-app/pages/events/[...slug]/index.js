@@ -1,10 +1,11 @@
 import EventsList from "@/components/events/EventsList";
 import EventsSearch from "@/components/events/events-search";
 import ErrorAlert from "@/components/ui/error-alert";
-import { getFilteredEvents } from "@/dummy-data";
+import { getFilteredEvents } from "@/utils/api-util";
 import { useRouter } from "next/router";
 import React from "react";
 import Head from "next/head";
+import Button from "@/components/ui/Button";
 
 const FilteredEvents = () => {
   let router = useRouter();
@@ -19,14 +20,21 @@ const FilteredEvents = () => {
 
   return (
     <>
-    <Head>
+      <Head>
         <title>Filtered Events</title>
         <meta name="author" content="Sallam Rady" />
         <meta name="description" content={`Events in ${month}/${year} `} />
       </Head>
       <EventsSearch onSearch={handleEventsFilters} />
       {filteredEvents?.length == 0 && (
-        <ErrorAlert>No Events According Your Filters.</ErrorAlert>
+        <>
+          <ErrorAlert>
+            <p>No events found for the chosen filter!</p>
+          </ErrorAlert>
+          <div style={{ width: "12rem", margin: "0 auto" }} className="center">
+            <Button link="/events">Show All Events</Button>
+          </div>
+        </>
       )}
       {filteredEvents?.length > 0 && <EventsList items={filteredEvents} />}
     </>
