@@ -3,8 +3,8 @@ import EventsSearch from "@/components/events/events-search";
 import { getAllEvents } from "@/dummy-data";
 import { useRouter } from "next/router";
 
-const EventsPage = () => {
-  let allEvents = getAllEvents();
+const EventsPage = (props) => {
+  let { allEvents } = props;
   let router = useRouter();
 
   // handle filtered Events
@@ -12,6 +12,10 @@ const EventsPage = () => {
     router.push(`/events/${year}/${month}`);
   };
 
+  if(!allEvents){
+    return <div className="center info">Loading...</div>
+  }
+  
   return (
     <>
       <EventsSearch onSearch={handleEventsFilters} />
@@ -19,5 +23,14 @@ const EventsPage = () => {
     </>
   );
 };
+
+export async function getStaticProps() {
+  return {
+    props: {
+      allEvents: getAllEvents(),
+    },
+    revalidate: 100,
+  };
+}
 
 export default EventsPage;

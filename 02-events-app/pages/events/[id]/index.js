@@ -4,13 +4,9 @@ import EventLogistics from "@/components/event-detail/event-logistics";
 import EventSummary from "@/components/event-detail/event-summary";
 import ErrorAlert from "@/components/ui/error-alert";
 import { getEventById } from "@/dummy-data";
-import { useRouter } from "next/router";
 
-function EventDetails() {
-  let router = useRouter();
-
-  const { id } = router.query;
-  const event = getEventById(id);
+function EventDetails(props) {
+  const { event } = props;
 
   if (!event) {
     return (
@@ -18,6 +14,10 @@ function EventDetails() {
         <p>No event found!</p>
       </ErrorAlert>
     );
+  }
+
+  if (!event) {
+    return <div className="center info">Loading...</div>;
   }
 
   return (
@@ -36,4 +36,25 @@ function EventDetails() {
   );
 }
 
+export async function getStaticPaths() {
+  return {
+    paths: [
+      { params: { id: "e1" } },
+      { params: { id: "e2" } },
+      { params: { id: "e3" } },
+    ],
+    fallback: false,
+  };
+}
+
+export async function getStaticProps(context) {
+  let { id } = context.params;
+  let _event = await getEventById(id);
+  return {
+    props: {
+      event: _event,
+    },
+    revalidate: 300,
+  };
+}
 export default EventDetails;

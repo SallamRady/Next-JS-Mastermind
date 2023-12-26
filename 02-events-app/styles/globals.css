@@ -31,3 +31,11 @@ ul {
   margin: auto;
   text-align: center;
 }
+
+.error {
+  background-color: rgb(224, 87, 87);
+}
+
+.info {
+  background-color: rgb(125, 67, 178);
+}
