@@ -2,21 +2,31 @@ import PostHeader from "./post-header";
 import classes from "./post-content.module.css";
 import ReactMarkdown from "react-markdown";
 
-const DummyPost = {
-  slug: "getting-started-nextjs",
-  title: "Getting Started with NextJS",
-  image: "getting-started-nextjs.png",
-  content: "#  My First POST",
-  date: "2024-12-28",
-};
+function PostContent(props) {
+  let { post } = props;
+  const imagePath = `/images/posts/${post?.slug}/${post?.image}`;
 
-function PostContent() {
-  const imagePath = `/images/posts/${DummyPost.slug}/${DummyPost.image}`;
+  // create custom renders for show markdown lang.
+  const customRenderers = {
+    img(image) {
+      return (
+        <Image
+          src={`/images/posts/${post.slug}/${image.url}`}
+          className='markdownImg'
+          alt={image.alt}
+          width={600}
+          height={400}
+          layout="responsive"
+        />
+      );
+    },
+    
+  };
 
   return (
     <article className={classes.content}>
-      <PostHeader title={DummyPost.title} image={imagePath} />
-      <ReactMarkdown>{DummyPost.content}</ReactMarkdown>
+      <PostHeader title={post?.title} image={imagePath} />
+      <ReactMarkdown renders={customRenderers}>{post?.content}</ReactMarkdown>
     </article>
   );
 }

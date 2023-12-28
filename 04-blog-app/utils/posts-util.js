@@ -5,11 +5,11 @@ import matter from "gray-matter";
 
 const postsDirPath = path.join(process.cwd(), "posts-articales");
 
-function getPostsFiles() {
+export function getPostsFiles() {
   return fs.readdirSync(postsDirPath);
 }
 
-function extractPostData(postIdentifier) {
+export function extractPostData(postIdentifier) {
   // remove file extention
   let postSlug = postIdentifier.replace(/\.md$/, "");
   let filePath = path.join(postsDirPath, `${postSlug}.md`);
