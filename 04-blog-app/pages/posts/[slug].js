@@ -1,9 +1,21 @@
 import PostContent from "@/components/posts/post-detail/post-content";
 import { extractPostData, getPostsFiles } from "@/utils/posts-util";
+import Head from "next/head";
 import React from "react";
 
 const PostDetails = (props) => {
-  return <PostContent post={props?.post} />;
+  return (
+    <>
+      <Head>
+        <title>{props?.post?.title}</title>
+        <meta
+          name="description"
+          content={props?.post?.excerpt}
+        />
+      </Head>
+      <PostContent post={props?.post} />
+    </>
+  );
 };
 
 export function getStaticPaths() {
