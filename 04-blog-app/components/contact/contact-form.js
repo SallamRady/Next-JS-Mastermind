@@ -42,7 +42,6 @@ function ContactForm() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         contextData.showNotification({
           title: "Success!",
           message: "Message Sended Successfully.",
@@ -53,7 +52,6 @@ function ContactForm() {
         setEnteredEmail("");
       })
       .catch((err) => {
-        console.log(err);
         contextData.showNotification({
           title: "Error!",
           message: "Unexpected error.",
