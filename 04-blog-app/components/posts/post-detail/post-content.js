@@ -1,6 +1,7 @@
 import PostHeader from "./post-header";
 import classes from "./post-content.module.css";
 import ReactMarkdown from "react-markdown";
+import Image from "next/image";
 
 function PostContent(props) {
   let { post } = props;

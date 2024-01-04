@@ -5,7 +5,7 @@ const MainNavbar = () => {
   return (
     <header className={classes.header}>
       <Link href="/">
-        <div className={classes.logo}>Sallam' Next Blog</div>
+        <div className={classes.logo}>Sallam&apos; Next Blog</div>
       </Link>
       <nav>
         <ul>
