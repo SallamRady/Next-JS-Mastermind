@@ -18,5 +18,22 @@ and to connect with other food lovers.
 
 <hr/>
 
+### Project Num 2 [ 02-events-app ]
+
+Name : Next Events
+
+Summary :
+Find a lot of great events around you that allow you to evolve..
+
+<hr/>
+
+### Project Num 3 [ 04-blog-app ]
+
+Name : Next Blog Project
+
+Summary :I blog about web development - especially mern stack and JS I love JS so much &#128525;.
+
+<hr/>
+
 Thanks,<br/>
 Sallam Rady [sallamrady@gmail.com](mailto:sallamrady@gmail.com) .
