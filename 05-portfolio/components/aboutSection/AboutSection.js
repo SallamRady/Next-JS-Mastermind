@@ -52,7 +52,7 @@ const TAB_DATA = [
 
 const AboutSection = () => {
   return (
-    <section className="text-white">
+    <section className="text-white" id="about">
       <div className="gap-8 items-center py-8 px-4 xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-16">
         <Image
           src="/images/about-image.png"
